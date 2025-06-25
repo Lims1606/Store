@@ -291,7 +291,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    solid_cable (3.0.10)
+    solid_cable (3.0.11)
       actioncable (>= 7.2)
       activejob (>= 7.2)
       activerecord (>= 7.2)
@@ -364,7 +364,6 @@ PLATFORMS
   arm-linux-musl
   arm64-darwin
   x86_64-darwin
-  x86_64-linux
   x86_64-linux-gnu
   x86_64-linux-musl
 
@@ -378,7 +377,7 @@ DEPENDENCIES
   kamal
   propshaft
   puma (>= 5.0)
-  rails (~> 8.0.2)
+  rails
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable
@@ -392,4 +391,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   2.5.22
+   2.6.9

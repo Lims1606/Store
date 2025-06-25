@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
+  resources :articles
 
-  root "products#index"
+  root "articles#index"
   get "up" => "rails/health#show", as: :rails_health_check
   #  get "/products", to: "products#index"
   #  get "/products", to: "products#index"
