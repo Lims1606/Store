@@ -6,6 +6,5 @@ class ApplicationController < ActionController::Base
 
   def record_not_found
     render file: "#{Rails.root}/public/404.html", status: :not_found
-    #redirect_to articles_path, alert: "Article not found."
   end
 end
