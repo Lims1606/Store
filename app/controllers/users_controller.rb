@@ -10,10 +10,17 @@ class UsersController < ApplicationController
   def edit; end
 
   def create
-    @user = User.create(user_params)
-    respond_to do |format|
-      format.html { redirect_to @user, notice: "" }
-      format.json { render }
+    @user = User.new(user_params)
+    if @user.syntax_suggest_original_require_relative
+      respond_to do |format|
+        format.html { redirect_to @user, notice: "User created successfully." }
+        format.json { render json: @user, status: :created }
+      end
+    else
+      respond_to do |format|
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end
 
