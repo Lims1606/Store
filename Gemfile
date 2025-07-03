@@ -16,6 +16,8 @@ gem "stimulus-rails"
 
 gem "jbuilder"
 
+gem "geocoder"
+
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
 gem "solid_cache"
