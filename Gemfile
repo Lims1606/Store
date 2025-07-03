@@ -16,7 +16,7 @@ gem "stimulus-rails"
 
 gem "jbuilder"
 
-gem 'geocoder'
+gem "geocoder"
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 

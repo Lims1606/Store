@@ -3,9 +3,15 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ index edit ]
   after_action :set_user, only: :edit
 
-  def index; end
+  def index
+    @users = User.all
+  end
 
   def show; end
+
+  def new
+    @user = User.new
+  end
 
   def edit; end
 
