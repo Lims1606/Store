@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_04_143355) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_07_143449) do
   create_table "admin_users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -29,8 +29,12 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_04_143355) do
     t.string "partnumber"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "price"
     t.integer "user_id", null: false
+    t.decimal "price", precision: 5, scale: 2
+    t.string "supplier_type", null: false
+    t.integer "supplier_id", null: false
+    t.text "description"
+    t.index ["supplier_type", "supplier_id"], name: "index_products_on_supplier"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -44,6 +48,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_04_143355) do
     t.integer "age"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", null: false
   end
 
   add_foreign_key "products", "users"
