@@ -63,4 +63,3 @@ p.valid?
 p.errors.size
 p.errors[:name]
 p.errors.full_messages
-
