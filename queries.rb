@@ -49,3 +49,18 @@ user.delete
 user = User.where(name: "Alice").destroy_all
 
 user = User.where(name: "Alice").delete_all
+
+p = Product.new(name: "Shirts", price: 50, partnumber: "124", user_id: 1, supplier_type: "Supplier", supplier_id: 11)
+p.new_record?
+p.persisted?
+p.valid?
+p.errors.full_messages
+
+p = Product.new(name: "Pants", price: 50, partnumber: "124", user_id: 1, supplier_type: "Supplier", supplier_id: 11)
+p.new_record?
+p.persisted?
+p.valid?
+p.errors.size
+p.errors[:name]
+p.errors.full_messages
+
