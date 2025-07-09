@@ -9,9 +9,17 @@ class Product < ApplicationRecord
 
   validate :short_description
 
+  before_validation :strip_name
+
   def short_description
     if description.present? && description.length > 500
-      errors.add(:description, "is too long. Please keep it under 500 characters")
+      errors.add :description, "is too long. Please keep it under 500 characters"
     end
+  end
+
+  private
+
+  def strip_name
+    self.name = name.strip if name.present?
   end
 end

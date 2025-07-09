@@ -63,3 +63,9 @@ p.valid?
 p.errors.size
 p.errors[:name]
 p.errors.full_messages
+
+u = User.create(name: "simen", age: 20, email: "simen@gmail.com")
+u.valid?
+puts u.name
+u = User.last
+u.update(name: "updated name")
