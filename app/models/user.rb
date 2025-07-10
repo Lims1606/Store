@@ -9,13 +9,30 @@ class User < ApplicationRecord
   end
 
   before_validation :capitalize_name
+  before_save :check_age
   after_create :log_new_user
+  after_create :log_adult_user, if: :adult?
   after_update :log_user_update
 
   private
 
   def capitalize_name
     self.name = name.capitalize if name.present?
+  end
+
+  def check_age
+    if age.to_i < 18
+      errors.add(:base, "User must be at least 18 years old")
+      throw(:abort)
+    end
+  end
+
+  def adult?
+    age.to_i >= 18
+  end
+
+  def log_adult_user
+    puts "Adult user created: #{name}"
   end
 
   def log_new_user

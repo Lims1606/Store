@@ -69,3 +69,6 @@ u.valid?
 puts u.name
 u = User.last
 u.update(name: "updated name")
+
+p = Product.new(name: "bag", price: 300, partnumber: "128", user_id: 1, supplier_id: 1, supplier_type: "supplier")
+p.save
