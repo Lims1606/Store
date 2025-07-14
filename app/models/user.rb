@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 50 }
-  validates :age, presence: true, length: { maximum: 2 }
+  validates :age, presence: true, numericality: true, length: { maximum: 2 }
   validates :email, presence: true, uniqueness: true
   validates_each :email do |record, attr, value|
     unless value.ends_with?(".com")
