@@ -117,5 +117,5 @@ book = a1.books.create!(title: "Collaboration")
 book.coauthors << a1
 book.coauthors << a2
 
-puts book.coauthors.map(&:name)  
+puts book.coauthors.map(&:name)
 puts a1.coauthored_books.map(&:title)
