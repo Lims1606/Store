@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_07_14_144419) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_15_134729) do
   create_table "admin_users", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -34,6 +34,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_14_144419) do
   create_table "authors_books", id: false, force: :cascade do |t|
     t.integer "author_id", null: false
     t.integer "book_id", null: false
+    t.index ["author_id", "book_id"], name: "index_authors_books_on_author_id_and_book_id"
+    t.index ["book_id", "author_id"], name: "index_authors_books_on_book_id_and_author_id"
   end
 
   create_table "book_categories", force: :cascade do |t|
@@ -57,6 +59,14 @@ ActiveRecord::Schema[8.0].define(version: 2025_07_14_144419) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "people", force: :cascade do |t|
+    t.string "name"
+    t.boolean "special_user", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "email"
   end
 
   create_table "products", force: :cascade do |t|

@@ -96,6 +96,16 @@ author = Author.find_by(name: "Candace")
 author.books.create!(title: "book for Candace")
 author.books.map(&:title)
 
+book = Book.new(title: "Wonderful")
+
+author = book.build_author(name: "Daniel")
+author.persisted?
+book.author_id?
+author.save
+
+book.author_id = author.id
+book.save
+
 book = Book.first
 category = Category.create!(name: "Adventure")
 
