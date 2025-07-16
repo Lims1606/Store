@@ -6,7 +6,7 @@ class DestroyAgeFromPerson < ActiveRecord::Migration[8.0]
         end
 
         dir.down do
-          add_column :people, :age, :integer 
+          add_column :people, :age, :integer
       end
     end
   end
