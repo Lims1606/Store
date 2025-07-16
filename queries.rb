@@ -129,3 +129,41 @@ book.coauthors << a2
 
 puts book.coauthors.map(&:name)
 puts a1.coauthored_books.map(&:title)
+
+author = Author.first
+author.pictures.create!(name: "Profile picture")
+
+book = Book.first
+book.pictures.create!(name: "Book cover")
+
+author.pictures.map(&:name)
+book.pictures.map(&:name)
+
+pic = Picture.first
+pic.imageable
+pic.imageable.name
+
+pic = Picture.last
+pic.imageable
+pic.imageable.title
+
+senior = Author.create(name: "Senior Author")
+junior = Author.create!(name: "Junior Author", mentor: senior)
+
+junior.mentor.name
+senior.mentess.map(&:name)
+
+author = Author.last
+pic = PortraitPicture.create!(name: "Author portrait", imageable: author)
+
+pic.class
+Picture.last.class
+
+book = Book.first
+pic = CoverPicture.create!(name: "Book cover", imageable: book)
+
+pic.class
+Picture.last.class
+
+PortraitPicture.pluck(:name)
+CoverPicture.pluck(:name)
