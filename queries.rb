@@ -153,6 +153,9 @@ junior = Author.create!(name: "Junior Author", mentor: senior)
 junior.mentor.name
 senior.mentess.map(&:name)
 
+Author.where.not(mentor_id: nil)
+Author.joins(:mentees).distinct
+
 author = Author.last
 pic = PortraitPicture.create!(name: "Author portrait", imageable: author)
 
@@ -167,3 +170,12 @@ Picture.last.class
 
 PortraitPicture.pluck(:name)
 CoverPicture.pluck(:name)
+
+cm = ContactMessage.new(name: "John", email: "john@gmail.com", body: "hello")
+cm.valid?
+cm.erorrs.full_messages
+cm.attribute_names
+cm.attributes
+cm.name
+cm.email
+cm.body
