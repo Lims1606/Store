@@ -179,3 +179,13 @@ cm.attributes
 cm.name
 cm.email
 cm.body
+
+Author.all.inspect
+Book.all.inspect
+Category.all.inspect
+BookCategory.all.inspect
+Author.find_by(name: "Alice").coauthored_books.inspect
+Profile.all.inspect
+Picture.all.inspect
+Author.find_by(name: "Alice").pictures.inspect
+Book.find_by(title: "Solo Book").pictures.inspect
