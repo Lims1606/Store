@@ -1,0 +1,2 @@
+class PortraitPicture < Picture
+end
