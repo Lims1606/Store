@@ -11,7 +11,21 @@
 
   <p>
     <strong>Description:</strong>
-    <%= article.description %>
+    <% if defined?(full_description) && full_description %>
+      <%= article.description %>
+    <% else %>
+      <%= short_description(article) %>
+    <% end %>
   </p>
+
+  <p>
+    <strong>Word Count:</strong>
+    <%= pluralize(article.description.split.size, "word") %>
+  </p>
+  
+  <p>
+    <%= time_ago_in_words(article.created_at) %> ago
+  </p>
+
 
 </div>

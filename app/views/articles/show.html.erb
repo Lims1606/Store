@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @article %>
+<%= content_tag(:h2, "Article Details") %>
+<%= render @article, full_description: true %>
 
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
