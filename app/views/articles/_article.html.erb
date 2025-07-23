@@ -14,7 +14,7 @@
     <% if defined?(full_description) && full_description %>
       <%= article.description %>
     <% else %>
-      <%= short_description(article) %>
+      <%= short_description(article.description, article_path(article)) %>
     <% end %>
   </p>
 
